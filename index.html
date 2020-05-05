@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div>
+        <p>Привет, мир!</p>
+    </div>
+    <div id="app">
+        <app-nav>
+            {{ message }}
+
+        </app-nav>
+        <app-view>
+            <app-sidebar>Sidebar</app-sidebar>
+            <app-content>
+                <hr>
+                <span v-bind:title="message2">
+              Hover your mouse over me for a few seconds
+              to see my dynamically bound title!
+            </span>
+                <hr>
+                <span v-if="seen">Now you see me</span>
+                <hr>
+                <ol>
+                    <li v-for="todo in todos">
+                        {{ todo.text }}
+                    </li>
+                </ol>
+                <hr>
+                <p>{{ message3 }}</p>
+                <button v-on:click="reverseMessage">Reverse Message</button>
+                <hr>
+                <button v-on:click="showDate">Show date</button>
+                <hr>
+                <p>{{ message }}</p>
+                <input v-model="message">
+                <input type="checkbox" v-model="seen">
+                <hr>
+                <ol>
+                    <!--
+                  Now we provide each todo-item with the todo object
+                  it's representing, so that its content can be dynamic.
+                  We also need to provide each component with a "key",
+                  which will be explained later.
+                -->
+                    <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+                </ol>
+
+            </app-content>
+        </app-view>
+
+    </div>
+
+    <script>
+        function result() {
+            alert(new Date().toISOString());
+        }
+
+        Vue.component('todo-item', {
+            props: ['todo'],
+            template: '<li>{{ todo.text }}</li>'
+        })
+
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                message2: 'You loaded this page on ' + new Date().toLocaleString(),
+                message3: 'Test message for reverse',
+                seen: true,
+                todos: [{
+                    text: 'Learn JavaScript'
+                }, {
+                    text: 'Learn Vue'
+                }, {
+                    text: 'Build something awesome'
+                }],
+                groceryList: [{
+                    id: 0,
+                    text: 'Vegetables'
+                }, {
+                    id: 1,
+                    text: 'Cheese'
+                }, {
+                    id: 2,
+                    text: 'Whatever else humans are supposed to eat'
+                }]
+            },
+            methods: {
+                reverseMessage: function() {
+                    this.message3 = this.message3.split('').reverse().join('')
+                },
+                showDate: result
+            }
+        })
+    </script>
+</body>
+
+</html>
