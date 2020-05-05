@@ -2,7 +2,7 @@
   <div id="app">
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
-  <b-tabs>
+  <b-tabs pills card vertical>
     <b-tab title="first" active>
      <br>I'm the first fading tab
     </b-tab>
@@ -21,12 +21,12 @@ import axios from "axios"
 
 export default {
   name: 'app',
-  data () {
-    return {
-      msg: 'Добро пожаловать в пример приложения',
-      isBusy: false,
-      fields: ["col1"]
-    }
+  data: {
+
+    msg: 'Добро пожаловать в пример приложения',
+    isBusy: false,
+    fields: ["col1"]
+
   },
   methods: {
     getDataFromFlask (ctx) {
