@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
+  <div id="app">b
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
-  <b-tabs pills card vertical>
+  <b-tabs pills card horisontal>
     <b-tab title="first" active>
      <br>I'm the first fading tab
     </b-tab>
