@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "@babel/core": "^7.13.16",
-        "axios": "^0.21.1",
+        "axios": "^0.21.2",
         "bootstrap": "^4.4.1",
         "bootstrap-vue": "^2.13.0",
         "popper.js": "^1.16.1",
@@ -29,6 +29,6 @@
         "vue-template-compiler": "^2.6.11",
         "webpack": "^4.43.0",
         "webpack-cli": "^4.6.0",
-        "webpack-dev-server": "^3.11.2"
+        "webpack-dev-server": "^4.15.0"
     }
 }
